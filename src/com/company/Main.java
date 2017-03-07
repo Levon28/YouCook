@@ -1,67 +1,65 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.opencsv.*;
 
+
 public class Main {
 
-    public static String randomKey(ArrayList<String> list){
-        Random random =new Random();
+    public static String randomKey(ArrayList<String> list) {
+        Random random = new Random();
         return list.get(random.nextInt(list.size()));
     }
+
     public static void main(String[] args) throws IOException {
         ImmutableList<String> butter = ImmutableList.of(
-                "120 gr (Butter)", "Butter","1","2","gr");
-        ImmutableList<String> sugar =ImmutableList.of(
-                "100 kg (Sugar)","Sugar", "2","3","kg");
+                "120 gr (Butter)", "Kukariku", "1", "2", "gr");
+        ImmutableList<String> sugar = ImmutableList.of(
+                "100 kg (Sugar)", "Sugarpova", "2", "3", "kg");
         ImmutableList<String> sourCream = ImmutableList.of(
-                "100 mg (Sour-cream)","Sour-cream","1","2","mg");
-        ImmutableList<String> soda= ImmutableList.of(
-                "1 tbsp baking soda mixed with a tbsp of vinegar (Soda)","Soda","2","3","tbsp");
-        ImmutableList<String> vanilla =ImmutableList.of(
-                "1 cup vanilla extract or a pinch of vanilla powder (Vanilla)","Vanilla","1","2","cup");
-        ImmutableList<String> flour= ImmutableList.of(
-                "250-300 tsp (Flour)","Flour","1","2","tsp");
+                "100 mg (Sour-cream)", "Sour-cream", "1", "2", "mg");
+        ImmutableList<String> soda = ImmutableList.of(
+                "1 tbsp baking soda mixed with a tbsp of vinegar (Soda)", "Soda", "2", "3", "tbsp");
+        ImmutableList<String> vanilla = ImmutableList.of(
+                "1 cup vanilla extract or a pinch of vanilla powder (Vanilla)", "Vanilla", "1", "2", "cup");
+        ImmutableList<String> flour = ImmutableList.of(
+                "250-300 tsp (Flour)", "Flour", "1", "2", "tsp");
         ImmutableList<String> milk = ImmutableList.of(
-                "500 ml (Milk)","Milk","2","3","ml");
-        ImmutableList<String> cherries =ImmutableList.of(
-                "400 pcs fresh or defrosted cherries without the bones (Cherry)","Cherry","2","3","pcs");
-        ImmutableList<String>  apple = ImmutableList.of(
-                "3-4 big apples (Apple)", "Apple","1","2","glass");
+                "500 ml (Milk)", "Milk", "2", "3", "ml");
+        ImmutableList<String> cherries = ImmutableList.of(
+                "400 pcs fresh or defrosted cherries without the bones (Cherry)", "Cherry", "2", "3", "pcs");
+        ImmutableList<String> apple = ImmutableList.of(
+                "3-4 big apples (Apple)", "Apple", "1", "2", "glass");
         ImmutableList<String> cinOrCard = ImmutableList.of(
-                "1 thsp cinnamon or 1 thsp of cardamon (Cinnamon or Cardamon)","Cinnamon Or Cardamon","1","2","thsp");
+                "1 thsp cinnamon or 1 thsp of cardamon (Cinnamon or Cardamon)", "Cinnamon Or Cardamon", "1", "2", "thsp");
         ImmutableList<String> bananas = ImmutableList.of(
-                "1 big or 2 small rape (Bananas)","Bananas","1","2","rape");
+                "1 big or 2 small rape (Bananas)", "Bananas", "1", "2", "rape");
         ImmutableList<String> coldWater = ImmutableList.of(
-                "40 ml (Cold water)","Cold Water","1","2","ml");
+                "40 ml (Cold water)", "Cold Water", "1", "2", "ml");
         ImmutableList<String> mascraponeCheese = ImmutableList.of(
-                "200 l (Mascarpone cheese)","Mascrapone Cheese","2","3","l");
-        ImmutableList<String> heavyCream= ImmutableList.of(
-                "200 big cup sweet (Heavy cream)","Heavy Cream","2","3","big cup");
+                "200 l (Mascarpone cheese)", "Mascrapone Cheese", "2", "3", "l");
+        ImmutableList<String> heavyCream = ImmutableList.of(
+                "200 big cup sweet (Heavy cream)", "Heavy Cream", "2", "3", "big cup");
         ImmutableList<String> coldEspresso = ImmutableList.of(
-                "300 small cup (Cold espresso)","Cold Espresso","1","2","small cup");
+                "300 small cup (Cold espresso)", "Cold Espresso", "1", "2", "small cup");
         ImmutableList<String> rum = ImmutableList.of(
-                "50 dl (Rum)","Rum","1","2","dl");
+                "50 dl (Rum)", "Rum", "1", "2", "dl");
         ImmutableList<String> salt = ImmutableList.of(
-                "1/2 cut (Salt)","Salt","0,5","5","cut");
+                "1/2 cut (Salt)", "Salt", "0,5", "5", "cut");
         ImmutableList<String> eggs = ImmutableList.of(
-                "2 eggs (Egg)", "Egg","2","3","pcs");
+                "2 eggs (Egg)", "Egg", "2", "3", "pcs");
         ImmutableList<String> sausageGravy = ImmutableList.of(
-                "Sausage Gravy","Suasage Graby","0.25","1","cup");
+                "Sausage Gravy", "Suasage Graby", "0.25", "1", "cup");
         ImmutableList<String> blackPepper = ImmutableList.of(
-                "2 teaspoons (Black Pepper)","Black Pepper","2","3","teaspoon");
-        ImmutableList<String> mandarin = ImmutableList.of(
-                "2 pcs (Mandarin)","Mandarin","2","3","pcs");
+                "2 teaspoons (Black Pepper)", "Black Pepper", "2", "3", "teaspoon");
 
-        ArrayList<String> ingNames =new ArrayList<String>();
+        ArrayList<String> ingNames = new ArrayList<String>();
         ingNames.add("Butter");
         ingNames.add("Sugar");
         ingNames.add("Sour Cream");
@@ -82,97 +80,136 @@ public class Main {
         ingNames.add("Eggs");
         ingNames.add("Sausage Gravy");
         ingNames.add("Black Pepper");
-        ingNames.add("Mandarin");
 
-        ImmutableMap<String,ImmutableList<String>> allIng = ImmutableMap.<String ,ImmutableList<String>>builder()
-                .put(ingNames.get(0),butter)
-                .put(ingNames.get(1),sugar)
-                .put(ingNames.get(2),sourCream)
-                .put(ingNames.get(3),soda)
-                .put(ingNames.get(4),vanilla)
-                .put(ingNames.get(5),flour)
-                .put(ingNames.get(6),milk)
-                .put(ingNames.get(7),cherries)
-                .put(ingNames.get(8),apple)
-                .put(ingNames.get(9),cinOrCard)
-                .put(ingNames.get(10),bananas)
-                .put(ingNames.get(11),coldWater)
-                .put(ingNames.get(12),mascraponeCheese)
-                .put(ingNames.get(13),heavyCream)
-                .put(ingNames.get(14),coldEspresso)
-                .put(ingNames.get(15),rum)
-                .put(ingNames.get(16),salt)
-                .put(ingNames.get(17),eggs)
-                .put(ingNames.get(18),sausageGravy)
-                .put(ingNames.get(19),blackPepper)
-                .put(ingNames.get(20),mandarin)
+        Map<String, Integer> allIngs = new HashMap<String, Integer>();
+        allIngs.put(ingNames.get(0), 60000);
+        allIngs.put(ingNames.get(1), 40000);
+        allIngs.put(ingNames.get(2), 30000);
+        allIngs.put(ingNames.get(3), 20000);
+        allIngs.put(ingNames.get(4), 10000);
+        allIngs.put(ingNames.get(5), 5000);
+        allIngs.put(ingNames.get(6), 2500);
+        allIngs.put(ingNames.get(7), 1000);
+        allIngs.put(ingNames.get(8), 500);
+        allIngs.put(ingNames.get(9), 100);
+        allIngs.put(ingNames.get(10), 50);
+        allIngs.put(ingNames.get(11), 25);
+        allIngs.put(ingNames.get(12), 60000);
+        allIngs.put(ingNames.get(13), 60000);
+        allIngs.put(ingNames.get(14), 60000);
+        allIngs.put(ingNames.get(15), 60000);
+        allIngs.put(ingNames.get(16), 60000);
+        allIngs.put(ingNames.get(17), 60000);
+        allIngs.put(ingNames.get(18), 60000);
+        allIngs.put(ingNames.get(19), 60000);
+
+        Map<String, Integer> allIngsCount = new HashMap<String, Integer>();
+        allIngsCount.put(ingNames.get(0), 0);
+        allIngsCount.put(ingNames.get(1), 0);
+        allIngsCount.put(ingNames.get(2), 0);
+        allIngsCount.put(ingNames.get(3), 0);
+        allIngsCount.put(ingNames.get(4), 0);
+        allIngsCount.put(ingNames.get(5), 0);
+        allIngsCount.put(ingNames.get(6), 0);
+        allIngsCount.put(ingNames.get(7), 0);
+        allIngsCount.put(ingNames.get(8), 0);
+        allIngsCount.put(ingNames.get(9), 0);
+        allIngsCount.put(ingNames.get(10), 0);
+        allIngsCount.put(ingNames.get(11), 0);
+        allIngsCount.put(ingNames.get(12), 0);
+        allIngsCount.put(ingNames.get(13), 0);
+        allIngsCount.put(ingNames.get(14), 0);
+        allIngsCount.put(ingNames.get(15), 0);
+        allIngsCount.put(ingNames.get(16), 0);
+        allIngsCount.put(ingNames.get(17), 0);
+        allIngsCount.put(ingNames.get(18), 0);
+        allIngsCount.put(ingNames.get(19), 0);
+
+        ImmutableMap<String, ImmutableList<String>> allIng = ImmutableMap.<String, ImmutableList<String>>builder()
+                .put(ingNames.get(0), butter)
+                .put(ingNames.get(1), sugar)
+                .put(ingNames.get(2), sourCream)
+                .put(ingNames.get(3), soda)
+                .put(ingNames.get(4), vanilla)
+                .put(ingNames.get(5), flour)
+                .put(ingNames.get(6), milk)
+                .put(ingNames.get(7), cherries)
+                .put(ingNames.get(8), apple)
+                .put(ingNames.get(9), cinOrCard)
+                .put(ingNames.get(10), bananas)
+                .put(ingNames.get(11), coldWater)
+                .put(ingNames.get(12), mascraponeCheese)
+                .put(ingNames.get(13), heavyCream)
+                .put(ingNames.get(14), coldEspresso)
+                .put(ingNames.get(15), rum)
+                .put(ingNames.get(16), salt)
+                .put(ingNames.get(17), eggs)
+                .put(ingNames.get(18), sausageGravy)
+                .put(ingNames.get(19), blackPepper)
                 .build();
 
         ImmutableList<String> stepOne = ImmutableList.of(
-                "https://www.dropbox.com/s/txnkviyzpe48fyk/51SgcNnhTeL._SL250_.jpg?dl=0","Mix all the liquid ingredients together with the help of a hand whisk"
+                "https://www.dropbox.com/s/txnkviyzpe48fyk/51SgcNnhTeL._SL250_.jpg?dl=0", "Mix all the liquid ingredients together with the help of a hand whisk"
         );
         ImmutableList<String> stepTwo = ImmutableList.of(
-                "https://www.dropbox.com/s/cc5sku5cq88ill9/61elDSl9bnL._SX258_BO1%2C204%2C203%2C200_.jpg?dl=0","Lastly add the flour and continue mixing. You will get a soft sticky dough."
+                "https://www.dropbox.com/s/cc5sku5cq88ill9/61elDSl9bnL._SX258_BO1%2C204%2C203%2C200_.jpg?dl=0", "Lastly add the flour and continue mixing. You will get a soft sticky dough."
         );
         ImmutableList<String> stepThree = ImmutableList.of(
-                "https://www.dropbox.com/s/4t2g4acqt2622iz/511wDa-aHwL._SX258_BO1%2C204%2C203%2C200_.jpg?dl=0","Cover a rectangular pan with parchment paper and put the dough onto it. With the help of a spoon spread the dough evenly."
+                "https://www.dropbox.com/s/4t2g4acqt2622iz/511wDa-aHwL._SX258_BO1%2C204%2C203%2C200_.jpg?dl=0", "Cover a rectangular pan with parchment paper and put the dough onto it. With the help of a spoon spread the dough evenly."
         );
         ImmutableList<String> stepFour = ImmutableList.of(
-                "https://www.dropbox.com/s/hjdfwg65ewgbvxt/mccormick_cover_yzjt1s.jpg?dl=0","Preheat the oven to 180°C."
+                "https://www.dropbox.com/s/hjdfwg65ewgbvxt/mccormick_cover_yzjt1s.jpg?dl=0", "Preheat the oven to 180°C."
         );
         ImmutableList<String> stepFive = ImmutableList.of(
-                "https://www.dropbox.com/s/37wfhpdkiewmohx/scandinavian-cooking-meals-top-30-delicious-and-nutritious-scandinavian-one-dish-soup-and-stew-meals-recipes_7603377.jpeg?dl=0","Bake the dough for about 15-20 mins."
+                "https://www.dropbox.com/s/37wfhpdkiewmohx/scandinavian-cooking-meals-top-30-delicious-and-nutritious-scandinavian-one-dish-soup-and-stew-meals-recipes_7603377.jpeg?dl=0", "Bake the dough for about 15-20 mins."
         );
         ImmutableList<String> stepSix = ImmutableList.of(
-                "https://www.dropbox.com/s/arzpv6iazhlet4l/3-easy-steps-flight_400x0_crop_400x250_eae81a55d0.jpg?dl=0","Mix all the liquid ingredients together with the help of a hand whisk."
+                "https://www.dropbox.com/s/arzpv6iazhlet4l/3-easy-steps-flight_400x0_crop_400x250_eae81a55d0.jpg?dl=0", "Mix all the liquid ingredients together with the help of a hand whisk."
         );
         ImmutableList<String> stepSeven = ImmutableList.of(
-                "https://www.dropbox.com/s/jj9fv86m0kshma6/3-easy-steps-flight.jpg?dl=0","Lastly add the flour and continue mixing. You will get a soft sticky dough"
+                "https://www.dropbox.com/s/jj9fv86m0kshma6/3-easy-steps-flight.jpg?dl=0", "Lastly add the flour and continue mixing. You will get a soft sticky dough"
         );
         ImmutableList<String> stepEight = ImmutableList.of(
-                "https://www.dropbox.com/s/fk6jgqoojkgwbo3/5bb5a305fe9435f495a0f53b902771d0.jpg?dl=0","Cover a rectangular pan with parchment paper and put the dough onto it. With the help of a spoon spread the dough evenly."
+                "https://www.dropbox.com/s/fk6jgqoojkgwbo3/5bb5a305fe9435f495a0f53b902771d0.jpg?dl=0", "Cover a rectangular pan with parchment paper and put the dough onto it. With the help of a spoon spread the dough evenly."
         );
         ImmutableList<String> stepNine = ImmutableList.of(
-                "https://www.dropbox.com/s/elw9lqqecigd124/503625f7d4d32f6d8fd9acf3850f39c7.jpg?dl=0","Preheat the oven to 270°C."
+                "https://www.dropbox.com/s/elw9lqqecigd124/503625f7d4d32f6d8fd9acf3850f39c7.jpg?dl=0", "Preheat the oven to 270°C."
         );
         ImmutableList<String> stepTen = ImmutableList.of(
-                "https://www.dropbox.com/s/yspgh88uzyhj0ph/1426623863-love-toast.jpg?dl=0","Then, in a separate bowl beat the butter with sugar and add the sour cream. Mix until well-combined."
+                "https://www.dropbox.com/s/yspgh88uzyhj0ph/1426623863-love-toast.jpg?dl=0", "Then, in a separate bowl beat the butter with sugar and add the sour cream. Mix until well-combined."
         );
         ImmutableList<String> stepEleven = ImmutableList.of(
-                "https://www.dropbox.com/s/9lz470dpt1uob62/aid223997-728px-Make-Healthy-Breakfast-Meals-Step-1-Version-2.jpg?dl=0","Add the vinegar and baking soda and add the vanilla."
+                "https://www.dropbox.com/s/9lz470dpt1uob62/aid223997-728px-Make-Healthy-Breakfast-Meals-Step-1-Version-2.jpg?dl=0", "Add the vinegar and baking soda and add the vanilla."
         );
         ImmutableList<String> stepTwelve = ImmutableList.of(
-                "https://www.dropbox.com/s/u2ip6099mnz3zgp/body-image-2.jpg?dl=0","Add the flour little by little and mix the mass with hands until you have a dough very alike to sugar cookies’ dough."
+                "https://www.dropbox.com/s/u2ip6099mnz3zgp/body-image-2.jpg?dl=0", "Add the flour little by little and mix the mass with hands until you have a dough very alike to sugar cookies’ dough."
         );
         ImmutableList<String> stepThirteen = ImmutableList.of(
-                "https://www.dropbox.com/s/5awmmxdddr2vskz/EWmenuplanner.jpg?dl=0","Separate the dough into two parts."
+                "https://www.dropbox.com/s/5awmmxdddr2vskz/EWmenuplanner.jpg?dl=0", "Separate the dough into two parts."
         );
         ImmutableList<String> stepFourteen = ImmutableList.of(
-                "https://www.dropbox.com/s/4khbmlqq9of5u7s/Healthy-breakfast-ideas.jpg?dl=0","Take one part of the dough and spread it evenly on the surface of the pan you are going to cook the pie in. Raise the edges so that they lie out of the pan. This will be more easily done with the help of a roll."
+                "https://www.dropbox.com/s/4khbmlqq9of5u7s/Healthy-breakfast-ideas.jpg?dl=0", "Take one part of the dough and spread it evenly on the surface of the pan you are going to cook the pie in. Raise the edges so that they lie out of the pan. This will be more easily done with the help of a roll."
         );
         ImmutableList<String> stepFifteen = ImmutableList.of(
-                "https://www.dropbox.com/s/23zzeniyep6ygxe/Healthy-Breakfast.jpg?dl=0","Fill in the cooled down custard and add the cherries to it."
+                "https://www.dropbox.com/s/23zzeniyep6ygxe/Healthy-Breakfast.jpg?dl=0", "Fill in the cooled down custard and add the cherries to it."
         );
         ImmutableList<String> stepSixteen = ImmutableList.of(
-                "https://www.dropbox.com/s/x48xw84dtzfh9x1/ideas-about-weight-loss-challenge-on-pinterest-weights-and-crossfit_i-must-lose-weight_nutrition-diets-most-effective-weight-loss-programs-phen375-reviews-healthy-meals-for-define-daily-_800x2979.jpg?dl=0","Take the second part of the dough, roll it and cover the pie. With the help of your roll pass onto the edges of the pan, so that the two layers are well stuck to each other. We don’t want the custard to pour out while baking."
+                "https://www.dropbox.com/s/x48xw84dtzfh9x1/ideas-about-weight-loss-challenge-on-pinterest-weights-and-crossfit_i-must-lose-weight_nutrition-diets-most-effective-weight-loss-programs-phen375-reviews-healthy-meals-for-define-daily-_800x2979.jpg?dl=0", "Take the second part of the dough, roll it and cover the pie. With the help of your roll pass onto the edges of the pan, so that the two layers are well stuck to each other. We don’t want the custard to pour out while baking."
         );
         ImmutableList<String> stepSeventeen = ImmutableList.of(
-                "https://www.dropbox.com/s/i89dsb6msf1gpao/Make-Healthy-Breakfast-Meals-Step-4-Version-2.jpg?dl=0","Whisk together the flour, baking soda and a pinch of salt."
+                "https://www.dropbox.com/s/i89dsb6msf1gpao/Make-Healthy-Breakfast-Meals-Step-4-Version-2.jpg?dl=0", "Whisk together the flour, baking soda and a pinch of salt."
         );
         ImmutableList<String> stepEighteen = ImmutableList.of(
-                "https://www.dropbox.com/s/asbpgh2czzg35hg/o-HEALTHY-BREAKFAST-IDEAS-facebook.jpg?dl=0","With the help of mixer beat the butter and sugar until you get a fluffy mass. One by one add the eggs and vanilla, and beat until all is well-combined."
+                "https://www.dropbox.com/s/asbpgh2czzg35hg/o-HEALTHY-BREAKFAST-IDEAS-facebook.jpg?dl=0", "With the help of mixer beat the butter and sugar until you get a fluffy mass. One by one add the eggs and vanilla, and beat until all is well-combined."
         );
         ImmutableList<String> stepNineteen = ImmutableList.of(
-                "https://www.dropbox.com/s/3di4u2u6q9ilhy8/RU188547.jpg?dl=0","Add the flour mixture little by little and continue to beat. Now you should have a smooth dough."
+                "https://www.dropbox.com/s/3di4u2u6q9ilhy8/RU188547.jpg?dl=0", "Add the flour mixture little by little and continue to beat. Now you should have a smooth dough."
         );
         ImmutableList<String> stepTwenty = ImmutableList.of(
-                "https://www.dropbox.com/s/gbu7e4p3kx1jhpa/weight-loss-plan-com-ways-to-lose-fast_lose-fat-fast_weight-loss-review-healthy-diet-meals-for-what-food-to-cut-out-lose-fat-clinic-phen375-official-site-3-steps-reduce.jpg?dl=0","Divide the dough in as many parts as you wish and wrap each in plastic bags."
-        );
-        ImmutableList<String> stepTwentyOne = ImmutableList.of(
-                "https://www.dropbox.com/s/0fndbvyexweai5q/28893fdd180f88e8fb946f908fd70011.jpg?dl=0","Refrigerate until the dough is firm for rolling. I usually leave it in the fridge overnight. "
+                "https://www.dropbox.com/s/gbu7e4p3kx1jhpa/weight-loss-plan-com-ways-to-lose-fast_lose-fat-fast_weight-loss-review-healthy-diet-meals-for-what-food-to-cut-out-lose-fat-clinic-phen375-official-site-3-steps-reduce.jpg?dl=0", "Divide the dough in as many parts as you wish and wrap each in plastic bags."
         );
 
-        ArrayList<String> stepsName =new ArrayList<String>();
+        ArrayList<String> stepsName = new ArrayList<String>();
         stepsName.add("first");
         stepsName.add("two");
         stepsName.add("three");
@@ -193,31 +230,30 @@ public class Main {
         stepsName.add("eighteen");
         stepsName.add("nineteen");
         stepsName.add("twenty");
-        stepsName.add("twentyOne");
 
-        ImmutableMap<String,ImmutableList<String>> allSteps= ImmutableMap.<String ,ImmutableList<String>>builder()
-                .put(stepsName.get(0),stepOne)
-                .put(stepsName.get(1),stepTwo)
-                .put(stepsName.get(2),stepThree)
-                .put(stepsName.get(3),stepFour)
-                .put(stepsName.get(4),stepFive)
-                .put(stepsName.get(5),stepSix)
-                .put(stepsName.get(6),stepSeven)
-                .put(stepsName.get(7),stepEight)
-                .put(stepsName.get(8),stepNine)
-                .put(stepsName.get(9),stepTen)
-                .put(stepsName.get(10),stepEleven)
-                .put(stepsName.get(11),stepTwelve)
-                .put(stepsName.get(12),stepThirteen)
-                .put(stepsName.get(13),stepFourteen)
-                .put(stepsName.get(14),stepFifteen)
-                .put(stepsName.get(15),stepSixteen)
-                .put(stepsName.get(16),stepSeventeen)
-                .put(stepsName.get(17),stepEighteen)
-                .put(stepsName.get(18),stepNineteen)
-                .put(stepsName.get(19),stepTwenty)
-                .put(stepsName.get(20),stepTwentyOne)
-                .build();
+
+        Map<String, ImmutableList<String>> allSteps = new HashMap<String, ImmutableList<String>>();
+        allSteps.put(stepsName.get(0), stepOne);
+        allSteps.put(stepsName.get(1), stepTwo);
+        allSteps.put(stepsName.get(2), stepThree);
+        allSteps.put(stepsName.get(3), stepFour);
+        allSteps.put(stepsName.get(4), stepFive);
+        allSteps.put(stepsName.get(5), stepSix);
+        allSteps.put(stepsName.get(6), stepSeven);
+        allSteps.put(stepsName.get(7), stepEight);
+        allSteps.put(stepsName.get(8), stepNine);
+        allSteps.put(stepsName.get(9), stepTen);
+        allSteps.put(stepsName.get(10), stepEleven);
+        allSteps.put(stepsName.get(11), stepTwelve);
+        allSteps.put(stepsName.get(12), stepThirteen);
+        allSteps.put(stepsName.get(13), stepFourteen);
+        allSteps.put(stepsName.get(14), stepFifteen);
+        allSteps.put(stepsName.get(15), stepSixteen);
+        allSteps.put(stepsName.get(16), stepSeventeen);
+        allSteps.put(stepsName.get(17), stepEighteen);
+        allSteps.put(stepsName.get(18), stepNineteen);
+        allSteps.put(stepsName.get(19), stepTwenty);
+
         ArrayList<String> name = new ArrayList<>();
         name.add("Pizza");
         name.add("Hamburger");
@@ -324,7 +360,6 @@ public class Main {
                 "\n" +
                 "When cut, it should be well-baked on top and bottom and stay clammy in the middle. Serve the cut pieces when still warm with a scoop of vanilla ice cream. Nyam-nyam! Bon apetit!");
 
-
         ArrayList<String> methodOfBaking = new ArrayList<>();
         methodOfBaking.add("This is the term used when a cake is made with butter or block margarine (soft or whipped margarines are unsuitable). It means that the fat and sugar are beaten together until creamy and pale: the eggs are then beaten into this mixture bit by bit");
         methodOfBaking.add("A cake made by this method starts off with the fat being rubbed into the flour – exactly the same as for shortcrust pastry. Butter, block margarine and lard can all be used. It is a very easy method.");
@@ -341,7 +376,6 @@ public class Main {
                 "N.B: If using an electric mixer the whisking time is reduced to 5-10 minutes and it is not necessary to whisk over hot water. The texture of a fatless sponge is even, light and very soft. It dries out very quickly so should be eaten within 2 days of baking.\n" +
                 "\n" +
                 "A Genoese Sponge contains a small proportion of fat, but is made by the whisking method. The Stork is melted and trickled into the side of the mixture a little at a time and folded in with the flour. This improves the flavour and will keep a few days longer than a Fatless Sponge.\n");
-
 
         ArrayList<String> cuisine = new ArrayList<>();
         cuisine.add("Italian");
@@ -368,92 +402,77 @@ public class Main {
         typeOfMeal.add("Dinner");
 
         String outputFile = "ingrediets.csv";
-        String outputFile2= "ingrediets2.csv";
-        String[] list= {"Id","Name","Image","CooK Time(min)","Source","Servings","DatePublished(mm/dd/yyyy)","PrepTime","Description","MethodOfBaking","Cuisine","TypeOfFood","TypeOfMeal","Step Images","Steps","IngredientsList","IngredientName","IngredientCountMin","IngredientCountMax","IngredientUnit" };
+        String outputFile2 = "ingrediets2.csv";
+        String[] list = {"Id", "Name", "Image", "CooK Time(min)", "Source", "Servings", "DatePublished(mm/dd/yyyy)", "PrepTime", "Description", "MethodOfBaking", "Cuisine", "TypeOfFood", "TypeOfMeal", "Step Images", "Steps", "IngredientsList", "IngredientName", "IngredientCountMin", "IngredientCountMax", "IngredientUnit"};
 
         boolean alreadyExists = new File(outputFile).exists();
-        boolean alreadyExists2= new File(outputFile2).exists();
+        boolean alreadyExists2 = new File(outputFile2).exists();
 
-            CSVWriter csvOutput = new CSVWriter (new FileWriter(outputFile, true), ',');
-            CSVWriter csvOutput2 = new CSVWriter(new FileWriter(outputFile2,true), ',');
+        CSVWriter csvOutput = new CSVWriter(new FileWriter(outputFile, true), ',');
 
-            if (!alreadyExists && !alreadyExists2)
-            {
-                csvOutput.writeNext(list);
-                csvOutput2.writeNext(list);
-            }
+        if (!alreadyExists && !alreadyExists2) {
+            csvOutput.writeNext(list);
+        }
 
         for (int i = 1; i <= 60000; i++) {
-                ArrayList<String> empty = new ArrayList<>();
-                ArrayList<String> emptySteps = new ArrayList<>();
-                while (emptySteps.size()<20){
-                    String randomSteps = randomKey(stepsName);
-                    if(emptySteps.contains(randomSteps)){
-                        randomSteps = randomKey(stepsName);
-                        while (!emptySteps.contains(randomSteps)){
-                            emptySteps.add(randomSteps);
-                        }
-                    }else{
-                        emptySteps.add(randomSteps);
-                    }
+
+            Random random = new Random();
+            int randomSteps = random.nextInt(stepsName.size());
+
+
+            List<String> stepNames = new ArrayList<>();
+
+            for (int r = 0; r < randomSteps; r++) {
+                String randomStep = randomKey(stepsName);
+
+                while (stepNames.contains(randomStep)) {
+                    randomStep = randomKey(stepsName);
                 }
-            while(empty.size()<20) {
+                stepNames.add(randomStep);
+            }
+            List<String> ingredientNames = new ArrayList<>();
 
-                String randomName = randomKey(ingNames);
-                if (empty.contains(randomName)) {
-                    randomName = randomKey(ingNames);
-                    while (!empty.contains(randomName)) {
-                        empty.add(randomName);
-                    }
+            for (int r = 0; r < ingNames.size(); r++) {
+                String randomIng = ingNames.get(r);
 
-                } else {
-                    empty.add(randomName);
+                if (allIngsCount.get(randomIng) < allIngs.get(randomIng)) {
+                    System.out.println(randomIng + "  allingCount  " + allIngsCount.get(randomIng)  + "   allINGS  " + allIngs.get(randomIng));
+                    ingredientNames.add(randomIng);
                 }
             }
-            Random random =new Random();
-            if(i<30001){
-                int m = random.nextInt(19)+1;
-                    for (int y = 0; y < empty.size(); y++) {
-                        if(y==0){
-                            String[] listik = {Integer.toString(i), randomKey(name), randomKey(image), randomKey(cookTime),"", randomKey(servings), randomKey(datePublished), randomKey(prepTime),randomKey(description) ,randomKey(methodOfBaking),randomKey(cuisine) ,randomKey(typeOfFood),randomKey(typeOfMeal),allSteps.get(emptySteps.get(y)).get(0),allSteps.get(emptySteps.get(y)).get(1), allIng.get(empty.get(y)).get(0), allIng.get(empty.get(y)).get(1),
-                                    allIng.get(empty.get(y)).get(2), allIng.get(empty.get(y)).get(3), allIng.get(empty.get(y)).get(4)};
-                            csvOutput.writeNext(listik);
-                        }
-                        else if (y<m){
-                            String[] listik = {Integer.toString(i), "", "", "","", "", "", "","" ,"","" ,"","",allSteps.get(emptySteps.get(y)).get(0),allSteps.get(emptySteps.get(y)).get(1), allIng.get(empty.get(y)).get(0), allIng.get(empty.get(y)).get(1),
-                                    allIng.get(empty.get(y)).get(2), allIng.get(empty.get(y)).get(3), allIng.get(empty.get(y)).get(4)};
-                            csvOutput.writeNext(listik);
-                        }
-                        else{
-                            String[] listik = {Integer.toString(i), "", "", "", "", "", "", "", "", "", "", "", "", "", "", allIng.get(empty.get(y)).get(0), allIng.get(empty.get(y)).get(1),
-                                    allIng.get(empty.get(y)).get(2), allIng.get(empty.get(y)).get(3), allIng.get(empty.get(y)).get(4)};
-                            csvOutput.writeNext(listik);
-                        }
+            for (int ing = 0; ing < ingNames.size(); ing++) {
+
+                if (ing == 0) {
+
+                    String[] listik = {Integer.toString(i), randomKey(name), randomKey(image), randomKey(cookTime), "",
+                            randomKey(servings), randomKey(datePublished), randomKey(prepTime), randomKey(description),
+                            randomKey(methodOfBaking), randomKey(cuisine), randomKey(typeOfFood), randomKey(typeOfMeal),
+                            allSteps.get("first").get(0),
+                            allSteps.get("first").get(1),
+                            allIng.get(ingredientNames.get(ing)).get(0), allIng.get(ingredientNames.get(ing)).get(1),
+                            allIng.get(ingredientNames.get(ing)).get(2), allIng.get(ingredientNames.get(ing)).get(3),
+                            allIng.get(ingredientNames.get(ing)).get(4)};
+                     csvOutput.writeNext(listik);
+
+
+                } else if ((ing < stepNames.size()) && (ing < ingredientNames.size())) {
+                    String[] listik = {Integer.toString(i), "", "", "", "", "", "", "", "", "", "", "", "", allSteps.get(stepNames.get(ing)).get(0), allSteps.get(stepNames.get(ing)).get(1),
+                            allIng.get(ingredientNames.get(ing)).get(0), allIng.get(ingredientNames.get(ing)).get(1), allIng.get(ingredientNames.get(ing)).get(2), allIng.get(ingredientNames.get(ing)).get(3), allIng.get(ingredientNames.get(ing)).get(4)};
+                        csvOutput.writeNext(listik);
+                } else if (ing < ingredientNames.size()) {
+                    String[] listik = {Integer.toString(i), "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+                            allIng.get(ingredientNames.get(ing)).get(0), allIng.get(ingredientNames.get(ing)).get(1), allIng.get(ingredientNames.get(ing)).get(2), allIng.get(ingredientNames.get(ing)).get(3), allIng.get(ingredientNames.get(ing)).get(4)};
+                       csvOutput.writeNext(listik);
+                } else if (ing < stepNames.size()) {
+                    String[] listik = {Integer.toString(i), "", "", "", "", "", "", "", "", "", "", "", "", allSteps.get(stepNames.get(ing)).get(0), allSteps.get(stepNames.get(ing)).get(1), "", "", "", "", ""};
+                        csvOutput.writeNext(listik);
                 }
-            }
-            else {
-                int m = random.nextInt(19)+1;
-                for (int y = 0; y < emptySteps.size(); y++) {
-                    if(y==0){
-                        String[] listik = {Integer.toString(i), randomKey(name), randomKey(image), randomKey(cookTime),"", randomKey(servings), randomKey(datePublished), randomKey(prepTime),randomKey(description) ,randomKey(methodOfBaking),randomKey(cuisine) ,randomKey(typeOfFood),randomKey(typeOfMeal),allSteps.get(emptySteps.get(y)).get(0),allSteps.get(emptySteps.get(y)).get(1),
-                                allIng.get(empty.get(y)).get(0), allIng.get(empty.get(y)).get(1),allIng.get(empty.get(y)).get(2), allIng.get(empty.get(y)).get(3), allIng.get(empty.get(y)).get(4)};
-                        csvOutput2.writeNext(listik);
-                    }
-                    else if (y<m){
-                        String[] listik = {Integer.toString(i), "", "", "","", "", "", "","" ,"","" ,"","",allSteps.get(emptySteps.get(y)).get(0),allSteps.get(emptySteps.get(y)).get(1), allIng.get(empty.get(y)).get(0), allIng.get(empty.get(y)).get(1),
-                                allIng.get(empty.get(y)).get(2), allIng.get(empty.get(y)).get(3), allIng.get(empty.get(y)).get(4)};
-                        csvOutput2.writeNext(listik);
-                    }
-                    else{
-                        String[] listik = {Integer.toString(i), "", "", "", "", "", "", "", "", "", "", "", "", allSteps.get(emptySteps.get(y)).get(0), allSteps.get(emptySteps.get(y)).get(1), "", "",
-                                "", "", ""};
-                        csvOutput2.writeNext(listik);
-                    }
-                }
+                Integer previousValue = allIngsCount.get(ingNames.get(ing));
+                allIngsCount.put(ingNames.get(ing), previousValue == null ? 1 : previousValue + 1);
+
             }
         }
-        csvOutput2.close();
-        csvOutput.close();
+         csvOutput.close();
     }
 }
 
